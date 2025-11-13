@@ -1,0 +1,51 @@
+html {
+  box-sizing: border-box;
+  font-family: "RedHatText", sans-serif;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+@font-face {
+  font-family: "RedHatText", sans-serif;
+  src: url("./assets/fonts/RedHatText-VariableFont_wght.ttf");
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+.main-container {
+  width: 300px;
+  padding: 20px;
+}
+.items img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.title {
+  font-weight: 700;
+}
+.items p {
+  font-size: 12px;
+  margin: 5px 0px;
+}
+.items h5 {
+  margin: 5px 0px;
+}
+.add-cart {
+  border: 0.5px solid black;
+  width: 120px;
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  border-radius: 20px;
+}
+.add-cart img {
+  width: 20px;
+  margin-bottom: 0;
+}

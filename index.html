@@ -1,74 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Product list with cart</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="product.css" />
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+    <title>Frontend Mentor | Product list with cart</title>
 
-  Desserts
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <div>
+        <h1 class="title">Desserts</h1>
+      </div>
 
-  Waffle with Berries
-  Waffle
-  6.50
-  Add to Cart
+      <div class="items">
+        <div class="item-waffle">
+          <img src="./assets/images/image-waffle-mobile.jpg" />
+          <button class="add-cart">
+            <img src="./assets/images/icon-add-to-cart.svg" />
+            <p>Add to Cart</p>
+          </button>
+          <p>Waffle</p>
+          <h5>Waffle with Berries</h5>
+          <h5>$6.50</h5>
+        </div>
 
-  Vanilla Bean Crème Brûlée
-  Crème Brûlée
-  7.00
-  Add to Cart
+        <div class="item-vanilla">
+          <img src="./assets/images/image-creme-brulee-mobile.jpg" />
+          <p>Creme Brulee</p>
+          <h5>Vanila Bean Creme Bruee</h5>
+          <h5>$7.00</h5>
+        </div>
 
-  Macaron Mix of Five
-  Macaron
-  8.00
-  Add to Cart
+        <div class="item-macaron">
+          <img src="./assets/images/image-macaron-mobile.jpg" />
+          <p>Macaron</p>
+          <h5>Macaron Mix of Five</h5>
+          <h5>$8.00</h5>
+        </div>
 
-  Classic Tiramisu
-  Tiramisu
-  5.50
-  Add to Cart
+        <div class="item-tiramisu">
+          <img src="./assets/images/image-tiramisu-mobile.jpg" />
+          <p>Tiramisu</p>
+          <h5>Classic Tiramisu</h5>
+          <h5>$5.50</h5>
+        </div>
 
-  Pistachio Baklava
-  Baklava
-  4.00
-  Add to Cart
+        <div class="item-pistachio">
+          <img src="./assets/images/image-baklava-mobile.jpg" />
+          <p>Baklava</p>
+          <h5>Pistachio Baklava</h5>
+          <h5>$4.00</h5>
+        </div>
 
-  Lemon Meringue Pie
-  Pie
-  5.00
-  Add to Cart
+        <div class="item-pie">
+          <img src="./assets/images/image-meringue-mobile.jpg" />
+          <p>Pie</p>
+          <h5>Lemon Meringue Pie</h5>
+          <h5>$5.00</h5>
+        </div>
 
-  Red Velvet Cake
-  Cake
-  4.50
-  Add to Cart
+        <div class="item-cake">
+          <img src="./assets/images/image-cake-mobile.jpg" />
+          <p>Cake</p>
+          <h5>Red Velvet cake</h5>
+          <h5>$4.50</h5>
+        </div>
 
-  Salted Caramel Brownie
-  Brownie
-  4.50
-  Add to Cart
+        <div class="item-brownie">
+          <img src="./assets/images/image-brownie-mobile.jpg" />
+          <p>Brownie</p>
+          <h5>Salted Caramel Brownie</h5>
+          <h5>$5.50</h5>
+        </div>
 
-  Vanilla Panna Cotta
-  Panna Cotta
-  6.50
-  Add to Cart
+        <div class="item-panna-cotta">
+          <img src="./assets/images/image-panna-cotta-mobile.jpg" />
+          <p>Panna Cotta</p>
+          <h5>Vanilla Panna Cotta</h5>
+          <h5>$6.50</h5>
+        </div>
+      </div>
 
-  Your Cart (<!-- Quantity -->)
-  Your added items will appear here
+      <div class="cart">
+        <h3>Your Cart(0)</h3>
+        <img src="./assets/images/illustration-empty-cart.svg" />
+        <p>Your added items will appear here</p>
+      </div>
+    </div>
 
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+      Coded by <a href="#">Your Name Here</a>.
+    </div>
+  </body>
 </html>
