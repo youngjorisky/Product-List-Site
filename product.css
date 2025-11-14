@@ -8,17 +8,27 @@ html {
   box-sizing: inherit;
 }
 @font-face {
-  font-family: "RedHatText", sans-serif;
+  font-family: "RedHatText";
   src: url("./assets/fonts/RedHatText-VariableFont_wght.ttf");
 }
 
 body {
+  font-family: "RedHatText", sans-serif;
   display: flex;
   flex-direction: column;
 }
+:root {
+  --background-color: hsl(20, 50%, 98%);
+  --cart-background: #fff;
+  --deep-brown: hsl(13, 18%, 25%);
+  --light-brown: hsl(7, 20%, 60%);
+  --bright-brown: hsl(24, 70%, 46%);
+  --normal-brown: hsl(12, 20%, 44%);
+}
 .main-container {
   width: 300px;
-  padding: 20px;
+  padding: 10px;
+  background: var(--background-color);
 }
 .items img {
   width: 100%;
@@ -31,21 +41,69 @@ body {
 .items p {
   font-size: 12px;
   margin: 5px 0px;
+  color: var(--light-brown);
 }
-.items h5 {
+.items h5:first-of-type {
+  color: var(--cart-p-tag);
   margin: 5px 0px;
 }
+.items h5:nth-of-type(2),
+.cart h3 {
+  color: var(--bright-brown);
+  margin: 5px 0px;
+}
+.item {
+  margin-top: 20px;
+}
 .add-cart {
-  border: 0.5px solid black;
+  position: absolute;
+  bottom: 68px;
+  left: 60px;
+  border: 0.5px solid var(--light-brown);
   width: 120px;
-  height: 30px;
+  height: 35px;
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
+  margin: 0px 20px;
   gap: 5px;
   border-radius: 20px;
 }
 .add-cart img {
-  width: 20px;
+  width: 18px;
   margin-bottom: 0;
+}
+.add-cart p {
+  font-family: "RedHatText", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--cart-p-tag);
+}
+.item {
+  position: relative;
+}
+.cart {
+  background: var(--cart-background);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+.cart p {
+  font-size: 11.5px;
+}
+.cart img {
+  width: 50%;
+}
+.cart h3 {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 0;
+}
+.cake-display p {
+  color: var(--normal-brown);
+  font-weight: 500;
 }
