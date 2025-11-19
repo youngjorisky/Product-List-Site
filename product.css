@@ -1,3 +1,5 @@
+@media (max-width: 600px) {
+}
 html {
   box-sizing: border-box;
   font-family: "RedHatText", sans-serif;
@@ -108,5 +110,89 @@ body {
   color: var(--normal-brown);
   font-weight: 500;
 }
+.mobile,
+.tablet {
+  display: none;
+}
 @media (min-width: 601px) and (max-width: 1024px) {
+  .mobile,
+  .desktop {
+    display: none;
+  }
+  .tablet {
+    display: block;
+  }
+  body {
+    font-family: "RedHatText", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .main-container {
+    display: flex;
+    width: 800px;
+    gap: 20px;
+    align-items: start;
+  }
+  .items-container {
+    width: 80%;
+  }
+  .items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, auto);
+    gap: 20px;
+  }
+  .cart {
+    height: auto;
+  }
+  .add-cart {
+    left: 10px;
+  }
+}
+@media (min-width: 1025px) {
+  .mobile,
+  .tablet {
+    display: none;
+  }
+  .desktop {
+    display: block;
+  }
+  body {
+    font-family: "RedHatText", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.3rem;
+  }
+  .items p {
+    font-size: 0.8rem;
+  }
+  .add-cart {
+    width: 150px;
+    height: 40px;
+  }
+  .main-container {
+    display: flex;
+    width: 1300px;
+    gap: 20px;
+    align-items: start;
+  }
+  .items-container {
+    flex: 2.1;
+  }
+  .items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, auto);
+    gap: 20px;
+  }
+  .cart {
+    flex: 0.8;
+    height: auto;
+  }
+  .add-cart {
+    left: 50px;
+    bottom: 85px;
+  }
 }
