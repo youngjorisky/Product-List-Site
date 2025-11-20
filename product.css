@@ -38,6 +38,9 @@ body {
   border-radius: 10px;
   margin-bottom: 20px;
 }
+.item.active img {
+  border: 2px solid hsl(24, 78%, 43%);
+}
 .title {
   font-weight: 700;
 }
@@ -72,6 +75,9 @@ body {
   margin: 0px 20px;
   gap: 5px;
   border-radius: 20px;
+}
+.non-selected {
+  display: flex;
 }
 .add-cart img {
   width: 18px;
@@ -113,6 +119,37 @@ body {
 .mobile,
 .tablet {
   display: none;
+}
+button {
+  position: relative;
+  overflow: hidden;
+}
+button .selected {
+  position: absolute;
+  display: none;
+  padding: 15px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--bright-brown);
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+.circle {
+  position: relative;
+  overflow: hidden;
+}
+button .selected .circle {
+  border: 1px solid white;
+  border-radius: 50% 50%;
+  height: 15px;
+  width: 15px;
+  position: relative;
+}
+.circle img {
+  width: 10px;
+  height: 10px;
 }
 @media (min-width: 601px) and (max-width: 1024px) {
   .mobile,
