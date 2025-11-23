@@ -94,12 +94,70 @@ body {
 }
 .cart {
   background: var(--cart-background);
-  display: flex;
+  display: none;
+  /* display: flex; */
   flex-direction: column;
   padding: 20px;
   text-align: center;
   border-radius: 10px;
   margin-top: 20px;
+}
+.your-cart {
+  background: var(--cart-background);
+  display: flex;
+  /* display: flex; */
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+  text-align: start;
+  border-radius: 10px;
+}
+.your-cart h3 {
+  margin-top: 0;
+  color: var(--bright-brown);
+}
+.your-cart p {
+  margin: 0;
+}
+.items-selected {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.item-1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px;
+}
+.sub-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.sub-item p {
+  color: var(--deep-brown);
+  font-weight: 500;
+}
+.horizontal-line {
+  border: 1px solid rgb(241, 238, 238);
+}
+.remove-cover {
+  border: 1px solid var(--light-brown);
+  border-radius: 50% 50%;
+  height: 15px;
+  width: 15px;
+  position: relative;
+}
+.remove-cover img {
+  width: 9px;
+  position: absolute;
+  top: 15%;
+  left: 15%;
+}
+.price-tag {
+  display: flex;
+  gap: 15px;
 }
 .cart p {
   font-size: 11.5px;
@@ -150,6 +208,36 @@ button .selected .circle {
 .circle img {
   width: 10px;
   height: 10px;
+}
+.price-tag :first-child {
+  color: var(--bright-brown);
+  font-weight: 500;
+}
+.price-tag :nth-child(2) {
+  color: var(--normal-brown);
+}
+.price-tag :nth-child(3) {
+  color: var(--normal-brown);
+  font-weight: 500;
+}
+.total-order p {
+  font-size: 13px;
+}
+.total-order .order-1 {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0px;
+  align-items: center;
+}
+.total-order .order-1 h3 {
+  margin: 0;
+}
+.total-order .order-2 {
+  display: flex;
+  justify-content: space-between;
+  gap: 3.2px;
+  padding: 10px;
+  border: 1px solid black;
 }
 @media (min-width: 601px) and (max-width: 1024px) {
   .mobile,
