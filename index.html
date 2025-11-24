@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
 
     <link
       rel="icon"
@@ -11,374 +10,45 @@
       sizes="32x32"
       href="./assets/images/favicon-32x32.png"
     />
+
     <link rel="stylesheet" href="product.css" />
 
-    <title>Frontend Mentor | Product list with cart</title>
-
-    <style>
-      .attribution {
-        font-size: 11px;
-        text-align: center;
-      }
-      .attribution a {
-        color: hsl(228, 45%, 44%);
-      }
-    </style>
+    <title>Product List with Cart</title>
   </head>
   <body>
     <div class="main-container">
       <div class="items-container">
-        <div>
-          <h1 class="title">Desserts</h1>
-        </div>
-
-        <div class="items">
-          <div class="item item-waffle">
-            <img class="mobile" src="./assets/images/image-waffle-mobile.jpg" />
-            <img class="tablet" src="./assets/images/image-waffle-tablet.jpg" />
-            <img
-              class="desktop"
-              src="./assets/images/image-waffle-desktop.jpg"
-            />
-            <button class="add-cart">
-              <div class="non-selected">
-                <img src="./assets/images/icon-add-to-cart.svg" />
-                <p>Add to Cart</p>
-              </div>
-              <div class="selected">
-                <div class="circle">
-                  <img src="./assets/images/icon-decrement-quantity.svg" />
-                </div>
-                <p>2</p>
-                <div class="circle">
-                  <img src="./assets/images/icon-increment-quantity.svg" />
-                </div>
-              </div>
-            </button>
-            <p>Waffle</p>
-            <h5>Waffle with Berries</h5>
-            <h5>$6.50</h5>
-          </div>
-
-          <div class="item item-vanilla">
-            <img
-              class="mobile"
-              src="./assets/images/image-creme-brulee-mobile.jpg"
-            />
-            <img
-              class="tablet"
-              src="./assets/images/image-creme-brulee-tablet.jpg"
-            />
-            <img
-              class="desktop"
-              src="./assets/images/image-creme-brulee-desktop.jpg"
-            />
-            <button class="add-cart">
-              <div class="non-selected">
-                <img src="./assets/images/icon-add-to-cart.svg" />
-                <p>Add to Cart</p>
-              </div>
-              <div class="selected">
-                <div class="circle">
-                  <img src="./assets/images/icon-decrement-quantity.svg" />
-                </div>
-                <p>2</p>
-                <div class="circle">
-                  <img src="./assets/images/icon-increment-quantity.svg" />
-                </div>
-              </div>
-            </button>
-            <p>Creme Brulee</p>
-            <h5>Vanila Bean Creme Bruee</h5>
-            <h5>$7.00</h5>
-          </div>
-
-          <div class="item item-macaron">
-            <img
-              class="mobile"
-              src="./assets/images/image-macaron-mobile.jpg"
-            />
-            <img
-              class="tablet"
-              src="./assets/images/image-macaron-tablet.jpg"
-            />
-            <img
-              class="desktop"
-              src="./assets/images/image-macaron-desktop.jpg"
-            />
-            <button class="add-cart">
-              <div class="non-selected">
-                <img src="./assets/images/icon-add-to-cart.svg" />
-                <p>Add to Cart</p>
-              </div>
-              <div class="selected">
-                <div class="circle">
-                  <img src="./assets/images/icon-decrement-quantity.svg" />
-                </div>
-                <p>2</p>
-                <div class="circle">
-                  <img src="./assets/images/icon-increment-quantity.svg" />
-                </div>
-              </div>
-            </button>
-            <p>Macaron</p>
-            <h5>Macaron Mix of Five</h5>
-            <h5>$8.00</h5>
-          </div>
-
-          <div class="item item-tiramisu">
-            <img
-              class="mobile"
-              src="./assets/images/image-tiramisu-mobile.jpg"
-            />
-            <img
-              class="tablet"
-              src="./assets/images/image-tiramisu-tablet.jpg"
-            />
-            <img
-              class="desktop"
-              src="./assets/images/image-tiramisu-desktop.jpg"
-            />
-            <button class="add-cart">
-              <div class="non-selected">
-                <img src="./assets/images/icon-add-to-cart.svg" />
-                <p>Add to Cart</p>
-              </div>
-              <div class="selected">
-                <div class="circle">
-                  <img src="./assets/images/icon-decrement-quantity.svg" />
-                </div>
-                <p>2</p>
-                <div class="circle">
-                  <img src="./assets/images/icon-increment-quantity.svg" />
-                </div>
-              </div>
-            </button>
-            <p>Tiramisu</p>
-            <h5>Classic Tiramisu</h5>
-            <h5>$5.50</h5>
-          </div>
-
-          <div class="item item-pistachio">
-            <img
-              class="mobile"
-              src="./assets/images/image-baklava-mobile.jpg"
-            />
-            <img
-              class="tablet"
-              src="./assets/images/image-baklava-tablet.jpg"
-            />
-            <img
-              class="desktop"
-              src="./assets/images/image-baklava-desktop.jpg"
-            />
-            <button class="add-cart">
-              <div class="non-selected">
-                <img src="./assets/images/icon-add-to-cart.svg" />
-                <p>Add to Cart</p>
-              </div>
-              <div class="selected">
-                <div class="circle">
-                  <img src="./assets/images/icon-decrement-quantity.svg" />
-                </div>
-                <p>2</p>
-                <div class="circle">
-                  <img src="./assets/images/icon-increment-quantity.svg" />
-                </div>
-              </div>
-            </button>
-            <p>Baklava</p>
-            <h5>Pistachio Baklava</h5>
-            <h5>$4.00</h5>
-          </div>
-
-          <div class="item item-pie">
-            <img
-              class="mobile"
-              src="./assets/images/image-meringue-mobile.jpg"
-            />
-            <img
-              class="tablet"
-              src="./assets/images/image-meringue-tablet.jpg"
-            />
-            <img
-              class="desktop"
-              src="./assets/images/image-meringue-desktop.jpg"
-            />
-            <button class="add-cart">
-              <div class="non-selected">
-                <img src="./assets/images/icon-add-to-cart.svg" />
-                <p>Add to Cart</p>
-              </div>
-              <div class="selected">
-                <div class="circle">
-                  <img src="./assets/images/icon-decrement-quantity.svg" />
-                </div>
-                <p>2</p>
-                <div class="circle">
-                  <img src="./assets/images/icon-increment-quantity.svg" />
-                </div>
-              </div>
-            </button>
-            <p>Pie</p>
-            <h5>Lemon Meringue Pie</h5>
-            <h5>$5.00</h5>
-          </div>
-
-          <div class="item item-cake">
-            <img class="mobile" src="./assets/images/image-cake-mobile.jpg" />
-            <img class="tablet" src="./assets/images/image-cake-tablet.jpg" />
-            <img class="desktop" src="./assets/images/image-cake-desktop.jpg" />
-            <button class="add-cart">
-              <div class="non-selected">
-                <img src="./assets/images/icon-add-to-cart.svg" />
-                <p>Add to Cart</p>
-              </div>
-              <div class="selected">
-                <div class="circle">
-                  <img src="./assets/images/icon-decrement-quantity.svg" />
-                </div>
-                <p>2</p>
-                <div class="circle">
-                  <img src="./assets/images/icon-increment-quantity.svg" />
-                </div>
-              </div>
-            </button>
-            <p>Cake</p>
-            <h5>Red Velvet cake</h5>
-            <h5>$4.50</h5>
-          </div>
-
-          <div class="item item-brownie">
-            <img
-              class="mobile"
-              src="./assets/images/image-brownie-mobile.jpg"
-            />
-            <img
-              class="tablet"
-              src="./assets/images/image-brownie-tablet.jpg"
-            />
-            <img
-              class="desktop"
-              src="./assets/images/image-brownie-desktop.jpg"
-            />
-            <button class="add-cart">
-              <div class="non-selected">
-                <img src="./assets/images/icon-add-to-cart.svg" />
-                <p>Add to Cart</p>
-              </div>
-              <div class="selected">
-                <div class="circle">
-                  <img src="./assets/images/icon-decrement-quantity.svg" />
-                </div>
-                <p>2</p>
-                <div class="circle">
-                  <img src="./assets/images/icon-increment-quantity.svg" />
-                </div>
-              </div>
-            </button>
-            <p>Brownie</p>
-            <h5>Salted Caramel Brownie</h5>
-            <h5>$5.50</h5>
-          </div>
-
-          <div class="item item-panna-cotta">
-            <img
-              class="mobile"
-              src="./assets/images/image-panna-cotta-mobile.jpg"
-            />
-            <img
-              class="tablet"
-              src="./assets/images/image-panna-cotta-tablet.jpg"
-            />
-            <img
-              class="desktop"
-              src="./assets/images/image-panna-cotta-desktop.jpg"
-            />
-            <button class="add-cart">
-              <div class="non-selected">
-                <img src="./assets/images/icon-add-to-cart.svg" />
-                <p>Add to Cart</p>
-              </div>
-              <div class="selected">
-                <div class="circle">
-                  <img src="./assets/images/icon-decrement-quantity.svg" />
-                </div>
-                <p>2</p>
-                <div class="circle">
-                  <img src="./assets/images/icon-increment-quantity.svg" />
-                </div>
-              </div>
-            </button>
-            <p>Panna Cotta</p>
-            <h5>Vanilla Panna Cotta</h5>
-            <h5>$6.50</h5>
-          </div>
-        </div>
-      </div>
-
-      <div class="cart">
-        <h3>Your Cart(0)</h3>
-        <div class="cake-display">
-          <img src="./assets/images/illustration-empty-cart.svg" />
-          <p>Your added items will appear here</p>
-        </div>
+        <h1 class="title">Desserts</h1>
+        <div class="items"></div>
       </div>
 
       <div class="your-cart">
-        <h3>Your Cart(0)</h3>
+        <h3>Your Cart</h3>
+
         <div class="items-selected">
-          <div class="item-1">
-            <div class="sub-item">
-              <p>Classic Tiramisu</p>
-              <div class="price-tag">
-                <p>1x</p>
-                <p>@$7.00</p>
-                <p>$5.50</p>
-              </div>
-            </div>
-            <div class="remove-cover">
-              <img src="./assets/images/icon-remove-item.svg" />
-            </div>
-          </div>
-
-          <div class="horizontal-line"></div>
-
-          <div class="item-1">
-            <div class="sub-item">
-              <p>Classic Tiramisu</p>
-              <div class="price-tag">
-                <p>1x</p>
-                <p>@$7.00</p>
-                <p>$5.50</p>
-              </div>
-            </div>
-            <div class="remove-cover">
-              <img src="./assets/images/icon-remove-item.svg" />
-            </div>
-          </div>
-
-          <div class="horizontal-line"></div>
-
-          <div class="total-order">
-            <div class="order-1">
-              <p>Order Total</p>
-              <h3>$46.50</h3>
-            </div>
-            <div class="order-2">
-              <img src="./assets/images/icon-carbon-neutral.svg" />
-              <p>This is a <strong>carbon-neutral</strong> delivery</p>
-            </div>
-            <button>Confirm Order</button>
+          <div class="cake-display">
+            <img
+              style="width: 60%"
+              src="./assets/images/illustration-empty-cart.svg"
+            />
+            <p>Your added items will appear here</p>
           </div>
         </div>
-      </div>
-    </div>
 
-    <div class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
-      Coded by <a href="#">Your Name Here</a>.
+        <div class="total-order">
+          <div class="order-1">
+            <p>Order Total</p>
+            <h3>$0.00</h3>
+          </div>
+
+          <div class="order-2">
+            <img src="./assets/images/icon-carbon-neutral.svg" />
+            <p>This is a <strong>carbon-neutral</strong> delivery</p>
+          </div>
+
+          <button>Confirm Order</button>
+        </div>
+      </div>
     </div>
 
     <script src="product.js"></script>

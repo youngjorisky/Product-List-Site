@@ -111,6 +111,7 @@ body {
   padding: 20px;
   text-align: start;
   border-radius: 10px;
+  margin-top: 30px;
 }
 .your-cart h3 {
   margin-top: 0;
@@ -220,13 +221,18 @@ button .selected .circle {
   color: var(--normal-brown);
   font-weight: 500;
 }
+.total-order {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 .total-order p {
-  font-size: 13px;
+  font-size: 12px;
 }
 .total-order .order-1 {
   display: flex;
   justify-content: space-between;
-  margin: 20px 0px;
+  margin: 20px 0px 0px 0px;
   align-items: center;
 }
 .total-order .order-1 h3 {
@@ -235,9 +241,18 @@ button .selected .circle {
 .total-order .order-2 {
   display: flex;
   justify-content: space-between;
-  gap: 3.2px;
-  padding: 10px;
-  border: 1px solid black;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: var(--background-color);
+  border-radius: 10px;
+}
+.total-order button {
+  font-family: "RedHatText", sans-serif;
+  height: 40px;
+  border-radius: 40px;
+  border: none;
+  background-color: var(--bright-brown);
+  color: var(--cart-background);
 }
 @media (min-width: 601px) and (max-width: 1024px) {
   .mobile,
