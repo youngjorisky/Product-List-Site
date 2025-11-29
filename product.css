@@ -115,6 +115,8 @@ body {
 }
 .your-cart h3 {
   margin-top: 0;
+}
+.your-cart h3:first-child {
   color: var(--bright-brown);
 }
 .your-cart p {
@@ -171,11 +173,19 @@ body {
   justify-content: flex-start;
   margin-top: 0;
 }
+.cake-display {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .cake-display p {
   color: var(--normal-brown);
   font-weight: 500;
+  text-align: center;
+  font-size: 13px;
 }
-.mobile,
+.desktop,
 .tablet {
   display: none;
 }
@@ -222,7 +232,7 @@ button .selected .circle {
   font-weight: 500;
 }
 .total-order {
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 20px;
 }
@@ -254,6 +264,33 @@ button .selected .circle {
   background-color: var(--bright-brown);
   color: var(--cart-background);
 }
+.order-confirmed {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  background: white;
+  padding: 20px;
+  z-index: 1001;
+  border-radius: 20px;
+}
+.order-confirmed h1 {
+  margin-bottom: 0px;
+}
+.order-confirmed p {
+  font-size: 13px;
+  margin-top: 0px;
+}
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
 @media (min-width: 601px) and (max-width: 1024px) {
   .mobile,
   .desktop {

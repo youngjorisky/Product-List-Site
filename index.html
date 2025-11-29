@@ -10,47 +10,64 @@
       sizes="32x32"
       href="./assets/images/favicon-32x32.png"
     />
-
     <link rel="stylesheet" href="product.css" />
 
-    <title>Product List with Cart</title>
+    <title>Desserts Store - Cart System</title>
   </head>
   <body>
     <div class="main-container">
+      <!-- ================= ITEMS SECTION ================= -->
       <div class="items-container">
         <h1 class="title">Desserts</h1>
         <div class="items"></div>
       </div>
 
-      <div class="your-cart">
+      <!-- ================= CART ASIDE ================= -->
+      <aside class="your-cart">
         <h3>Your Cart</h3>
 
-        <div class="items-selected">
-          <div class="cake-display">
-            <img
-              style="width: 60%"
-              src="./assets/images/illustration-empty-cart.svg"
-            />
-            <p>Your added items will appear here</p>
+        <!-- Selected Items -->
+        <div class="items-selected"></div>
+
+        <!-- Total Order Section -->
+        <div class="total-order">
+          <div class="order-1">
+            <p>Order Total</p>
+            <h3>$0.00</h3>
           </div>
+          <div class="order-2">
+            <img
+              src="./assets/images/icon-carbon-neutral.svg"
+              alt="Carbon Neutral"
+            />
+            <p>This is a <strong>carbon-neutral</strong> delivery</p>
+          </div>
+
+          <!-- Confirm Button -->
+          <button class="confirmed">Confirm Order</button>
         </div>
+      </aside>
+
+      <!-- ================= OVERLAY ================= -->
+      <div class="overlay"></div>
+
+      <!-- ================= ORDER CONFIRMED POPUP ================= -->
+      <div class="order-confirmed">
+        <h1>Order Confirmed</h1>
+        <p>We hope you enjoy your food!</p>
 
         <div class="total-order">
           <div class="order-1">
             <p>Order Total</p>
             <h3>$0.00</h3>
           </div>
-
-          <div class="order-2">
-            <img src="./assets/images/icon-carbon-neutral.svg" />
-            <p>This is a <strong>carbon-neutral</strong> delivery</p>
-          </div>
-
-          <button>Confirm Order</button>
         </div>
+
+        <button class="confirmed">Start New Order</button>
       </div>
     </div>
 
+    <!-- ================= JS FILE ================= -->
     <script src="product.js"></script>
   </body>
 </html>

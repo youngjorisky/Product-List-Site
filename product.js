@@ -1,42 +1,54 @@
+// --------------------------
+// Select DOM Elements
+// --------------------------
 const itemsContainer = document.querySelector(".items");
+const itemsSelectedContainer = document.querySelector(".items-selected");
+const totalOrderContainer = document.querySelector(".total-order");
+const confirmBtn = document.querySelector(".your-cart .confirmed");
+const orderConfirmed = document.querySelector(".order-confirmed");
+const overlay = document.querySelector(".overlay");
 
+// --------------------------
+// Cart array
+// --------------------------
 let cart = [];
 
-// Fetch data from JSON
+// --------------------------
+// Fetch Items from JSON
+// --------------------------
 fetch("./data.json")
-  .then((response) => response.json())
-  .then((data) => {
-    displayItems(data);
-  });
+  .then((res) => res.json())
+  .then((data) => displayItems(data))
+  .catch((err) => console.error("Failed to load items:", err));
 
-// Display products on page
+// --------------------------
+// Display Items on Page
+// --------------------------
 function displayItems(items) {
   itemsContainer.innerHTML = "";
 
   items.forEach((item) => {
     let quantity = 0;
 
+    // Create item div
     const itemDiv = document.createElement("div");
     itemDiv.classList.add("item");
 
     itemDiv.innerHTML = `
-      <img class="mobile" src="${item.image.mobile}">
-      <img class="tablet" src="${item.image.tablet}">
-      <img class="desktop" src="${item.image.desktop}">
+      <img class="mobile" src="${item.image.mobile}" />
+      <img class="tablet" src="${item.image.tablet}" />
+      <img class="desktop" src="${item.image.desktop}" />
 
       <button class="add-cart">
         <div class="non-selected">
           <img src="./assets/images/icon-add-to-cart.svg" />
           <p>Add to Cart</p>
         </div>
-
         <div class="selected">
           <div class="circle decrement">
             <img src="./assets/images/icon-decrement-quantity.svg" />
           </div>
-
           <p class="quantity">${quantity}</p>
-
           <div class="circle increment">
             <img src="./assets/images/icon-increment-quantity.svg" />
           </div>
@@ -50,94 +62,89 @@ function displayItems(items) {
 
     itemsContainer.appendChild(itemDiv);
 
-    const nonselected = itemDiv.querySelector(".non-selected");
+    const nonSelected = itemDiv.querySelector(".non-selected");
     const selected = itemDiv.querySelector(".selected");
     const images = itemDiv.querySelectorAll(".mobile, .tablet, .desktop");
-
+    const quantityDisplay = itemDiv.querySelector(".quantity");
     const incrementBtn = itemDiv.querySelector(".increment");
     const decrementBtn = itemDiv.querySelector(".decrement");
-    const quantityDisplay = itemDiv.querySelector(".quantity");
 
-    // Select / unselect item
+    // --------------------------
+    // Toggle Item Selection
+    // --------------------------
     itemDiv.addEventListener("click", (e) => {
       if (e.target.closest(".increment") || e.target.closest(".decrement"))
         return;
 
       const isActive = itemDiv.classList.contains("active");
-
       if (!isActive) {
         itemDiv.classList.add("active");
         selected.style.display = "flex";
-        nonselected.style.display = "none";
-
-        images.forEach((image) => {
-          if (image.style.display !== "none") {
-            image.style.border = "2px solid hsl(24, 78%, 43%)";
-          }
-        });
+        nonSelected.style.display = "none";
+        images.forEach(
+          (img) => (img.style.border = "2px solid hsl(24, 78%, 43%)")
+        );
       } else {
         itemDiv.classList.remove("active");
         selected.style.display = "none";
-        nonselected.style.display = "flex";
-
-        images.forEach((image) => {
-          image.style.border = "none";
-        });
-
+        nonSelected.style.display = "flex";
+        images.forEach((img) => (img.style.border = "none"));
         quantity = 0;
-        quantityDisplay.textContent = 0;
+        quantityDisplay.textContent = quantity;
         updateCart(item, 0);
       }
     });
 
-    // Increase quantity
+    // --------------------------
+    // Increment Quantity
+    // --------------------------
     incrementBtn.addEventListener("click", (e) => {
       e.stopPropagation();
       quantity++;
       quantityDisplay.textContent = quantity;
-
       updateCart(item, quantity);
     });
 
-    // Decrease quantity
+    // --------------------------
+    // Decrement Quantity
+    // --------------------------
     decrementBtn.addEventListener("click", (e) => {
       e.stopPropagation();
       if (quantity > 0) {
         quantity--;
         quantityDisplay.textContent = quantity;
-
         updateCart(item, quantity);
       }
     });
   });
 }
 
-// Update Cart Array
+renderCart();
+
+// --------------------------
+// Update Cart
+// --------------------------
 function updateCart(item, quantity) {
   if (quantity === 0) {
-    cart = cart.filter((cartItem) => cartItem.name !== item.name);
+    cart = cart.filter((c) => c.name !== item.name);
   } else {
-    const existingItem = cart.find((cartItem) => cartItem.name === item.name);
-
-    if (existingItem) {
-      existingItem.quantity = quantity;
-    } else {
+    const existingItem = cart.find((c) => c.name === item.name);
+    if (existingItem) existingItem.quantity = quantity;
+    else
       cart.push({
         name: item.name,
         price: item.price,
         quantity: quantity,
+        image: item.image,
       });
-    }
   }
-
   renderCart();
 }
 
-// Render Cart UI & Total
+// --------------------------
+// Render Cart
+// --------------------------
 function renderCart() {
-  const itemsSelectedContainer = document.querySelector(".items-selected");
-  const orderTotalText = document.querySelector(".total-order h3");
-
   itemsSelectedContainer.innerHTML = "";
 
   if (cart.length === 0) {
@@ -147,11 +154,11 @@ function renderCart() {
         <p>Your added items will appear here</p>
       </div>
     `;
-
-    orderTotalText.textContent = "$0.00";
+    totalOrderContainer.style.display = "none";
     return;
   }
 
+  totalOrderContainer.style.display = "flex";
   let total = 0;
 
   cart.forEach((cartItem) => {
@@ -160,7 +167,6 @@ function renderCart() {
 
     const cartItemDiv = document.createElement("div");
     cartItemDiv.classList.add("item-1");
-
     cartItemDiv.innerHTML = `
       <div class="sub-item">
         <p class="item-name">${cartItem.name}</p>
@@ -170,7 +176,6 @@ function renderCart() {
           <p class="total-item-price">$${itemTotal.toFixed(2)}</p>
         </div>
       </div>
-
       <div class="remove-cover">
         <img src="./assets/images/icon-remove-item.svg" />
       </div>
@@ -182,13 +187,76 @@ function renderCart() {
     line.classList.add("horizontal-line");
     itemsSelectedContainer.appendChild(line);
 
-    // Remove from cart
+    // Remove item
     const removeBtn = cartItemDiv.querySelector(".remove-cover");
     removeBtn.addEventListener("click", () => {
-      cart = cart.filter((item) => item.name !== cartItem.name);
+      cart = cart.filter((c) => c.name !== cartItem.name);
       renderCart();
     });
   });
 
-  orderTotalText.textContent = `$${total.toFixed(2)}`;
+  document.querySelector(
+    ".total-order .order-1 h3"
+  ).textContent = `$${total.toFixed(2)}`;
 }
+
+// --------------------------
+// Confirm Order Button
+// --------------------------
+confirmBtn.addEventListener("click", () => {
+  if (cart.length === 0) return;
+  orderConfirmed.style.display = "block";
+  overlay.style.display = "block";
+  buildOrderConfirmed();
+});
+
+// --------------------------
+// Build Confirmed Order
+// --------------------------
+function buildOrderConfirmed() {
+  const container = document.querySelector(".order-confirmed .one-family");
+  container.innerHTML = "";
+  let total = 0;
+
+  cart.forEach((cartItem) => {
+    const itemTotal = cartItem.price * cartItem.quantity;
+    total += itemTotal;
+
+    const itemDiv = document.createElement("div");
+    itemDiv.classList.add("confirmed-item");
+    itemDiv.innerHTML = `
+      <div class="left-side">
+        <img src="${cartItem.image.mobile} size="20px" />
+        <div class="sub-item">
+          <p class="item-name">${cartItem.name}</p>
+          <div class="price-tag">
+            <p class="number-of-times">${cartItem.quantity}x</p>
+            <p class="one-item-price">@$${cartItem.price.toFixed(2)}</p>
+          </div>
+        </div>
+      </div>
+      <p class="total-item-price">$${itemTotal.toFixed(2)}</p>
+    `;
+    container.appendChild(itemDiv);
+
+    const line = document.createElement("div");
+    line.classList.add("horizontal-line");
+    container.appendChild(line);
+  });
+
+  document.querySelector(
+    ".order-confirmed .order-1 h3"
+  ).textContent = `$${total.toFixed(2)}`;
+}
+
+// --------------------------
+// Close Confirmed Order
+// --------------------------
+document
+  .querySelector(".order-confirmed .confirmed")
+  .addEventListener("click", () => {
+    orderConfirmed.style.display = "none";
+    overlay.style.display = "none";
+    cart = [];
+    renderCart();
+  });
