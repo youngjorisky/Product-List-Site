@@ -231,6 +231,28 @@ button .selected .circle {
   color: var(--normal-brown);
   font-weight: 500;
 }
+.order-confirmed .total-order {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 10px;
+  margin-bottom: 20px;
+  background-color: rgb(249, 249, 237);
+}
+.order-confirmed .total-order p,
+.order-confirmed .total-order h3 {
+  margin: 0px;
+}
+.order-confirmed h1 {
+  margin-top: 5px;
+}
+.order-confirmed > img {
+  width: 35px;
+}
+.order-confirmed > p {
+  color: hsl(0, 0%, 0%, 0.6);
+}
 .total-order {
   display: none;
   flex-direction: column;
@@ -275,6 +297,8 @@ button .selected .circle {
   padding: 20px;
   z-index: 1001;
   border-radius: 20px;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 .order-confirmed h1 {
   margin-bottom: 0px;
@@ -289,6 +313,52 @@ button .selected .circle {
   inset: 0;
   background: rgba(0, 0, 0, 0.5);
   z-index: 1000;
+}
+.one-family {
+  display: flex;
+  flex-direction: column;
+}
+.yellow-background {
+  background-color: rgb(249, 249, 237);
+}
+.left-side {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+.left-side p {
+  font-size: 10px;
+}
+.left-side img {
+  flex: 30%;
+  height: 40px;
+}
+.sub-item {
+  display: flex;
+  width: 170px;
+  margin-top: 10px;
+}
+.sub-item p:first-child {
+  margin-bottom: 0px;
+  margin-top: 0;
+}
+.total-item-price {
+  margin-bottom: 0px;
+  font-weight: 500;
+}
+.confirmed {
+  font-family: "RedHatText", sans-serif;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: 35px;
+  border-radius: 20px;
+  border: none;
+  color: #fff;
+  background-color: var(--bright-brown);
 }
 
 @media (min-width: 601px) and (max-width: 1024px) {

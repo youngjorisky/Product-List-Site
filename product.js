@@ -223,10 +223,9 @@ function buildOrderConfirmed() {
     total += itemTotal;
 
     const itemDiv = document.createElement("div");
-    itemDiv.classList.add("confirmed-item");
     itemDiv.innerHTML = `
       <div class="left-side">
-        <img src="${cartItem.image.mobile} size="20px" />
+        <img src="${cartItem.image.mobile}" style="width:20px" />
         <div class="sub-item">
           <p class="item-name">${cartItem.name}</p>
           <div class="price-tag">
@@ -237,16 +236,20 @@ function buildOrderConfirmed() {
       </div>
       <p class="total-item-price">$${itemTotal.toFixed(2)}</p>
     `;
+    itemDiv
+      .appendChild(document.createElement("div"))
+      .classList.add("horizontal-line");
     container.appendChild(itemDiv);
-
-    const line = document.createElement("div");
-    line.classList.add("horizontal-line");
-    container.appendChild(line);
+    itemDiv.style.display = "flex";
+    itemDiv.style.alignItems = "center";
+    itemDiv.style.margin = "5px auto";
+    itemDiv.style.justifyContent = "space-between";
+    container.classList.add("yellow-background");
   });
 
-  document.querySelector(
-    ".order-confirmed .order-1 h3"
-  ).textContent = `$${total.toFixed(2)}`;
+  document.querySelector(".order-confirmed h3").textContent = `$${total.toFixed(
+    2
+  )}`;
 }
 
 // --------------------------
@@ -259,4 +262,20 @@ document
     overlay.style.display = "none";
     cart = [];
     renderCart();
+
+    // RESET ALL ITEMS ON PAGE
+    document.querySelectorAll(".item").forEach((itemDiv) => {
+      itemDiv.classList.remove("active");
+
+      const nonSelected = itemDiv.querySelector(".non-selected");
+      const selected = itemDiv.querySelector(".selected");
+      const images = itemDiv.querySelectorAll(".mobile, .tablet, .desktop");
+      const quantityDisplay = itemDiv.querySelector(".quantity");
+
+      // Reset UI
+      selected.style.display = "none";
+      nonSelected.style.display = "flex";
+      images.forEach((img) => (img.style.border = "none"));
+      quantityDisplay.textContent = 0;
+    });
   });
