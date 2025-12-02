@@ -35,22 +35,28 @@ function displayItems(items) {
     itemDiv.classList.add("item");
 
     itemDiv.innerHTML = `
-      <img class="mobile" src="${item.image.mobile}" />
-      <img class="tablet" src="${item.image.tablet}" />
-      <img class="desktop" src="${item.image.desktop}" />
+      <img alt="${item.image.mobile.name}"class="mobile" src="${
+      item.image.mobile
+    }" />
+      <img alt="${item.image.mobile.name}" class="tablet" src="${
+      item.image.tablet
+    }" />
+      <img alt="${item.image.mobile.name}" class="desktop" src="${
+      item.image.desktop
+    }" />
 
       <button class="add-cart">
         <div class="non-selected">
-          <img src="./assets/images/icon-add-to-cart.svg" />
+          <img alt="icon-add-to-cart" src="./assets/images/icon-add-to-cart.svg" />
           <p>Add to Cart</p>
         </div>
         <div class="selected">
           <div class="circle decrement">
-            <img src="./assets/images/icon-decrement-quantity.svg" />
+            <img alt="icon-decrement" src="./assets/images/icon-decrement-quantity.svg" />
           </div>
           <p class="quantity">${quantity}</p>
           <div class="circle increment">
-            <img src="./assets/images/icon-increment-quantity.svg" />
+            <img alt="icon-increment" src="./assets/images/icon-increment-quantity.svg" />
           </div>
         </div>
       </button>
@@ -150,7 +156,7 @@ function renderCart() {
   if (cart.length === 0) {
     itemsSelectedContainer.innerHTML = `
       <div class="cake-display">
-        <img style="width:60%" src="./assets/images/illustration-empty-cart.svg" />
+        <img alt="img-empty-cart" style="width:60%" src="./assets/images/illustration-empty-cart.svg" />
         <p>Your added items will appear here</p>
       </div>
     `;
@@ -177,7 +183,7 @@ function renderCart() {
         </div>
       </div>
       <div class="remove-cover">
-        <img src="./assets/images/icon-remove-item.svg" />
+        <img alt="icon-remove-item" src="./assets/images/icon-remove-item.svg" />
       </div>
     `;
 
@@ -225,7 +231,9 @@ function buildOrderConfirmed() {
     const itemDiv = document.createElement("div");
     itemDiv.innerHTML = `
       <div class="left-side">
-        <img src="${cartItem.image.mobile}" style="width:20px" />
+        <img alt="${cartItem.image.mobile.name}" src="${
+      cartItem.image.mobile
+    }" style="width:20px" />
         <div class="sub-item">
           <p class="item-name">${cartItem.name}</p>
           <div class="price-tag">
